@@ -1,0 +1,27 @@
+{
+  "name": "moon-letter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "canvas-confetti": "latest",
+    "fireworks-js": "latest",
+    "framer-motion": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "vite": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/node": "latest"
+  }
+}

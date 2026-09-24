@@ -1,0 +1,9 @@
+import { useState } from 'react'
+import { memories, type Memory } from '../config/memories'
+import { letter } from '../config/letter'
+
+export function MemoryArchive({ onNext }: { onNext:()=>void }) {
+  const [selected,setSelected]=useState<Memory | null>(null);const [secret,setSecret]=useState(false)
+  const select=(m:Memory)=>setSelected(m)
+  return <section className="chapter archive"><div className="chapter-kicker">CHAPTER 03</div><h2>MOON ARCHIVE</h2><p className="lede">月亮好像记得一些事情。</p><div className="timeline">{memories.map(m=><button className="memory-row" key={m.date} onClick={()=>select(m)}><time>{m.date}</time><span className="timeline-dot"/><div><strong>{m.title}</strong><p>{m.description}</p></div></button>)}</div><div className="polaroids">{memories.map((m,i)=><button key={m.date} onClick={()=>select(m)} className={`polaroid p${i}`}><div className="photo"><img src={m.image} alt={m.title} loading="lazy" onError={e=>{e.currentTarget.style.display='none'}}/><i>☾</i></div><span>{m.title}</span></button>)}</div><button className="quiet-button archive-next" onClick={onNext}>继续往前走</button>{selected&&<div className="memory-modal" onClick={()=>setSelected(null)}><article onClick={e=>e.stopPropagation()}><small>Memory #{String(memories.indexOf(selected)+1).padStart(2,'0')}</small><div className="modal-photo" onClick={()=>{if(memories.indexOf(selected)===1)setSecret(true)}}><img src={selected.image} alt="" onError={e=>{e.currentTarget.style.display='none'}}/><span>☾</span></div><h3>{selected.title}</h3><p>{selected.description}</p>{secret&&memories.indexOf(selected)===1&&<section className="secret-letter"><small>MOON ARCHIVE · PRIVATE NOTE</small><h4>{letter.easterEggLetter.title}</h4>{letter.easterEggLetter.paragraphs.map(paragraph=><p key={paragraph}>{paragraph}</p>)}<strong>{letter.easterEggLetter.signature}</strong></section>}<button onClick={()=>setSelected(null)}>收好这段记忆</button></article></div>}</section>
+}
