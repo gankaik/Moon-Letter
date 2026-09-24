@@ -10,3 +10,5 @@
 .task>.lede{margin-top:4px;padding:10px 20px;border-radius:16px;background:rgba(3,12,24,.45);color:#fffdf4;font-size:clamp(16px,4.2vw,20px);font-weight:500;line-height:1.9;text-shadow:0 2px 12px #01050c;box-shadow:0 4px 20px rgba(0,0,0,.16)}
 .final-actions{display:flex;justify-content:center;gap:10px;margin-top:27px}.final-restart,.final-music{margin:0}.final-music{border:1px solid rgba(255,225,151,.78);border-radius:999px;background:rgba(168,133,65,.18);padding:10px 20px;color:#fff3cf;letter-spacing:.1em;font-size:12px;backdrop-filter:blur(8px)}
 .final-copy>.final-restart{display:block;margin:27px auto 0}
+
+.archive-hint{margin:10px 0 0;color:#e6cd8e;font-size:12px;letter-spacing:.08em;text-shadow:0 2px 8px #020711}
